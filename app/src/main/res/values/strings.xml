@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">GuessNumber</string>
+    <string name="please_enter_a_number">Please enter a number(1~10)</string>
+    <string name="ok">OK</string>
+    <string name="yes_you_got_it">Yes,you got it~</string>
+    <string name="bigger">bigger</string>
+    <string name="smaller">smaller</string>
+    <string name="log_verbose">verbose to view all log</string>
+    <string name="log_error">error to view important message log</string>
+    <string name="log_debug">debug usually used to debug log</string>
+    <string name="log_information">information to view normal message log</string>
+    <string name="log_warning">warning user something message log</string>
+    <string name="dialog_title">Message</string>
+    <string name="title_activity_material">Game guessNumber</string>
+    <string name="save_message_part1">Your name </string>
+    <string name="save_message_part2"><![CDATA[ & use ]]></string>
+    <string name="save_message_part3">times to pass has been recorded~</string>
+    <string name="replayTitle_dialog">Replay game</string>
+    <string name="replayMessage_dialog">Are you sure?</string>
 </resources>

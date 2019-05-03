@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    val secretNumber=SecretNumber()
+    private val secretNumber=SecretNumber()
+    private val TAG=MainActivity::class.java.simpleName
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -17,25 +17,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun check(view:View){
+//        resources.getString(R.string.yes_you_got_it_chinese)
         val n:Int =number_editText.text.toString().toInt()
         println("number ${n}")
-        Log.v("MainActivity","verbose甚麼都要詳細顯示的log"+" number : ${n}")
-        Log.e("MainActivity","error表示這件事情很嚴重的log"+" number : ${n}")
-        Log.d("MainActivity","debug通常除錯時使用的log"+" number : ${n}")
-        Log.i("MainActivity","imformation一般資訊使用的log"+" number : ${n}")
-        Log.w("MainActivity","warning警告使用者的log"+" number : ${n}")
-        var message:String="恭喜猜對了~"
+        Log.v(TAG,getString(R.string.log_verbose)+" number : ${n}")
+        Log.e(TAG,getString(R.string.log_error)+" number : ${n}")
+        Log.d(TAG,getString(R.string.log_debug)+" number : ${n}")
+        Log.i(TAG,getString(R.string.log_information)+" number : ${n}")
+        Log.w(TAG,getString(R.string.log_warning)+" number : ${n}")
+        var message:String=getString(R.string.yes_you_got_it)
         var vali:Int=secretNumber.validate(n)
         if(vali<0){
-            message="再大一些"
+            message=getString(R.string.bigger)
         }else if (vali>0){
-            message="再小一些"
+            message=getString(R.string.smaller)
         }
 //        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
         AlertDialog.Builder(this)
-            .setTitle("Message")
+            .setTitle(getString(R.string.dialog_title))
             .setMessage(message)
-            .setPositiveButton("OK",null)
+            .setPositiveButton(getString(R.string.ok),null)
             .show()
     }
 }
